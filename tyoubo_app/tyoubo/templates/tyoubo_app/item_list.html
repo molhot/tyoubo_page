@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post lists</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Post</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <th>{{ item.id }}</th>
+        <td>{{ item.item_name }}</td>
+        <td>{{ post.item_prive }}</td>
+        <td>{{ post.item_type }}</td>
+        <td>
+          <a href="{% url 'tyoubo:edit_post' post_id=item.id %}">修正</a>
+          <a href="{% url 'tyoubo:delete_post' post_id=item.id %}">削除</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'tyoubo:create_post' %}">作成</a>
+</body>
+</html>

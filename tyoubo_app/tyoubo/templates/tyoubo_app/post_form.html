@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Post Form</title>
+</head>
+<body>
+    <h4>Post の編集</h4>
+    {% if item_id %}
+    <form action="{% url 'tyoubo:edit_post' item_id=item_id %}" method="post">
+    {% else %}
+    <form action="{% url 'tyoubo:create_post' %}" method="post">
+    {% endif %}
+    {% csrf_token %}
+    {{ form }}
+        <button type="submit">送信</button>
+    </form>
+    <a href="{% url 'tyoubo:read_post' %}">戻る</a>
+</body>
+</html>
