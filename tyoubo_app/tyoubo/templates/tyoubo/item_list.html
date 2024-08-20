@@ -17,12 +17,12 @@
       {% for item in items %}
       <tr>
         <th>{{ item.id }}</th>
-        <td>{{ item.item_name }}</td>
-        <td>{{ post.item_prive }}</td>
-        <td>{{ post.item_type }}</td>
+        <td>{{ item.registed_item_name }}</td>
+        <td>{{ item.item_price }}</td>
+        <td>{{ item.get_item_type_display }}</td>
         <td>
-          <a href="{% url 'tyoubo:edit_post' post_id=item.id %}">修正</a>
-          <a href="{% url 'tyoubo:delete_post' post_id=item.id %}">削除</a>
+          <a href="{% url 'tyoubo:edit_post' item_id=item.id %}">修正</a>
+          <a href="{% url 'tyoubo:delete_post' item_id=item.id %}">削除</a>
         </td>
       </tr>
       {% endfor %}
